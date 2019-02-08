@@ -11,9 +11,9 @@ import posts from './data/posts';
 // create a object for the default data
 const defaultState = {
   posts,
-  comments,
+  comments
   // es6 version of "comments: comments"
-}
+};
 
 const store = createStore(rootReducer, defaultState);
 
