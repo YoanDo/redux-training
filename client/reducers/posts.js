@@ -4,6 +4,7 @@
 // 2 - A copy of the current state
 
 function posts(state = [], action) {
+  console.log('post will change ya  ✅');
   console.log(state, action);
   return state;
 }
