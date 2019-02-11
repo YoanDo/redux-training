@@ -8,7 +8,7 @@ const Comments = React.createClass({
           <strong>{comment.user}</strong>
           {comment.text}
         </p>
-        <button className="remove-comment">&times;</button>
+        <button className="remove-comment" onClick={this.props.removeComment.bind(null, this.props.params.postId, i)}>&times;</button>
       </div>
     );
   },
@@ -20,6 +20,8 @@ const Comments = React.createClass({
     const author = this.refs.author.value;
     const comment = this.refs.comment.value;
     addComment(postId, author, comment);
+    //cleans the new input
+    this.refs.commentForm.reset()
   },
   render() {
     const { postComments } = this.props;
