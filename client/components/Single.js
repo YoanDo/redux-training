@@ -14,8 +14,8 @@ const Single = React.createClass({
     const postComments = this.props.comments[postId] || [];
     return (
       <div className="single-photo">
-        <Photo index={i} post={post} {...this.props} />;
-        <Comments postComments={postComments}/>
+        <Photo index={i} post={post} {...this.props} />
+        <Comments postComments={postComments} {...this.props}/>
       </div>
     );
   }

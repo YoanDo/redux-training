@@ -12,12 +12,25 @@ const Comments = React.createClass({
       </div>
     );
   },
+  handleSubmit(e) {
+    // e.preventDefault() on a submit function prevent the page reloading
+    e.preventDefault();
+    const { postId } = this.props.params;
+    const { addComment } = this.props;
+    const author = this.refs.author.value;
+    const comment = this.refs.comment.value;
+    addComment(postId, author, comment);
+  },
   render() {
     const { postComments } = this.props;
     return (
       <div className="comments">
         {postComments.map(this.renderComment)}
-        <form action="" ref="commentForm" className="comment-form">
+        <form
+          onSubmit={this.handleSubmit}
+          ref="commentForm"
+          className="comment-form"
+        >
           <input type="text" ref="author" placeholder="author" />
           <input type="text" ref="comment" placeholder="comment" />
           {/* input hidden i necessary to let the user hit enter when he is done */}
